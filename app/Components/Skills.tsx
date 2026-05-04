@@ -2,32 +2,31 @@
 
 import { useEffect, useState } from "react"
 
-
 const Skills = () => {
-    const [animate, setAnimate] = useState<string>("")
-    const [animate2, setAnimate2] = useState<string>("")
+    const [animate, setAnimate] = useState<string>(" ")
+    const [animate2, setAnimate2] = useState<string>(" ")
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
-            if (window.scrollY > 700) {
+            if (window.scrollY > 700 && window.scrollY < 1800) {
                 setAnimate("animate-slide-in-right")
-                setTimeout(() => {
-                    setAnimate2("animate-slide-in-left")
-                }, 500)
+                setTimeout(() => setAnimate2("animate-slide-in-left"), 500)
             }
-
+            
+            if (window.scrollY > 1800 || window.scrollY < 100) {
+                setAnimate(" ")
+                setAnimate2(" ")
+            }
         })
-    }, [])
+    }, [animate, animate2])
 
-    if (animate === "") {
-        return <></>
+    if (animate.includes(" ")) {
+        return <div className="h-screen w-2/3"></div>
     }
 
-    if (animate2 === "") {
+    if (animate2.includes(" ")) {
         return (
             <div className={"flex flex-col items-center h-screen w-2/3 border-2 border-violet-500 shadow-xl/30 shadow-sky-500 bg-gray-950 rounded-2xl overflow-hidden font-mono p-2 gap-3 " + animate}>
-
-
             </div>
         )
     }
@@ -75,11 +74,11 @@ const Skills = () => {
 
             {/* Conhecimentos Gerais */}
 
-            <h1 className={"p-3 text-2xl text-slate-100  "  + animate2}>
+            <h1 className={"p-3 text-2xl text-slate-100  " + animate2}>
                 Conhecimentos Gerais
             </h1>
 
-            <div className={"flex flex-row gap-2 "  + animate2}>
+            <div className={"flex flex-row gap-2 " + animate2}>
 
                 <div className="text-center hover:scale-110">
                     <h1>Java</h1>
@@ -113,11 +112,11 @@ const Skills = () => {
 
             {/* Banco de Dados */}
 
-            <h1 className={"p-3 text-2xl text-slate-100 "  + animate2}>
+            <h1 className={"p-3 text-2xl text-slate-100 " + animate2}>
                 Banco de Dados
             </h1>
 
-            <div className={"flex flex-row p-2 gap-2 overflow-y-hidden "  + animate2}>
+            <div className={"flex flex-row p-2 gap-2 overflow-y-hidden " + animate2}>
                 <div className="text-center hover:scale-110">
                     <h1>MongoDB</h1>
                     <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/mongodb-icon.png" className="rounded-2xl w-40" />
