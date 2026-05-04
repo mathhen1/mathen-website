@@ -9,25 +9,23 @@ const AboutMe = () => {
 
     useEffect(() => {
         setAnimate2("animate-slide-in-right")
-        setTimeout(() => {
-            setAnimate("animate-slide-in-top")
-        }, 500)
-    }, [animate, animate2])
+        setTimeout(() => setAnimate("animate-slide-in-top"), 100)
+    }, [animate2, animate])
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
             if (window.scrollY > 900) {
-                setAnimate("")
                 setAnimate2("")
+                setAnimate("")
             }
         })
-    }, [])
+    }, [animate, animate2])
 
-    if (animate === "" && animate === "") {
+    if (animate === "") {
         return <div className="h-screen w-2/3"></div>
     }
 
-    if (animate === "") {
+    if (animate2 === "") {
         return (
             <div className={"jane flex items-center justify-center h-screen w-2/3 border-2 border-violet-500 rounded-2xl divide-x-3 shadow-xl/30 shadow-sky-500 bg-gray-950 font-mono " + animate2}></div>
         )
