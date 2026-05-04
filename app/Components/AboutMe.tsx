@@ -14,14 +14,16 @@ const AboutMe = () => {
     }, [])
 
     useEffect(() => {
+        const h = window.screen.height
 
         window.addEventListener("scroll", () => {
-            if (window.scrollY > 900) {
+
+            if (window.scrollY > h) {
                 setAnimate2(" ")
                 setAnimate(" ")
             }
 
-            if (window.scrollY < 500) {
+            if (window.scrollY < (h / 2)) {
                 setAnimate("animate-slide-in-right")
                 setTimeout(() => setAnimate2("animate-slide-in-top"), 300)
             }
@@ -29,21 +31,19 @@ const AboutMe = () => {
     }, [animate2, animate])
 
     if (animate.includes(" ")) {
-        return <div className="h-screen w-2/3"></div>
+        return <div className="h-screen w-11/12"></div>
     }
 
     if (animate2.includes(" ")) {
-        return <div className={"h-screen w-2/3 " + animate}></div>
+        return <div className={"h-screen w-11/12 " + animate}></div>
     }
 
     return (
-        <div className={"flex items-center justify-center h-screen w-2/3 border-2 border-violet-500 rounded-2xl divide-x-3 shadow-xl/30 shadow-sky-500 bg-gray-950 font-mono " + animate}>
+        <div className={"flex items-center justify-center h-screen md:w-2/3 w-11/12 border-2 border-violet-500 rounded-2xl divide-x-3 shadow-xl/30 shadow-sky-500 bg-gray-950 font-mono gap-5 " + animate}>
 
             <div className={"flex flex-1 justify-center " + animate2}>
                 <img src={"eu-foto.jpg"}
-                    width={300}
-                    height={300}
-                    className="border rounded-3xl"></img>
+                    className="border rounded-3xl md:w-60 md:h-80 w-50 h-70"></img>
             </div>
 
             <div className={"flex flex-1 justify-center " + animate2}>
@@ -52,7 +52,7 @@ const AboutMe = () => {
                     <br></br>
                     <h1>Especializando em Engenharia de Software <br /> (Centro Universitário Frassinetti do Recife)</h1>
                     <br></br>
-                    <h1>Inglês - Nível Intermediário (Leitura, escrita e entendimento) <br /> (Wise Up Online) </h1>
+                    <h1>Inglês - Nível Intermediário <br /> (Leitura, escrita e entendimento) <br /> (Wise Up Online) </h1>
                 </div>
             </div>
         </div>
