@@ -47,12 +47,12 @@ const AboutMe = () => {
             </div>
 
             <div className={"flex flex-1 justify-center " + animate2}>
-                <div className="flex flex-col">
-                    <h1>Graduado em Analise e Desenvolvimento de Sistemas <br /> (Faculdade Aeso Barros Melo)</h1>
-                    <br></br>
-                    <h1>Especializando em Engenharia de Software <br /> (Centro Universitário Frassinetti do Recife)</h1>
-                    <br></br>
-                    <h1>Inglês - Nível Intermediário <br /> (Leitura, escrita e entendimento) <br /> (Wise Up Online) </h1>
+                <div className="flex flex-col text-lg">
+                    <h1 className="font-extrabold bg-gradient-to-r from-violet-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">Graduado em Analise e Desenvolvimento de Sistemas <br /> (Faculdade Aeso Barros Melo)</h1>
+                    <br />
+                    <h1 className="font-extrabold bg-gradient-to-r from-violet-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">Especializando em Engenharia de Software <br /> (Centro Universitário Frassinetti do Recife)</h1>
+                    <br/>
+                    <h1 className="font-extrabold bg-gradient-to-r from-violet-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">Inglês - Nível Intermediário <br /> (Leitura, escrita e entendimento) <br /> (Wise Up Online) </h1>
                 </div>
             </div>
         </div>
