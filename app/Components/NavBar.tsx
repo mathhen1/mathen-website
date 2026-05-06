@@ -5,6 +5,7 @@ import { useState } from "react"
 const NavBar = () => {
 
     const [nav, setNav] = useState<string>("hidden")
+    const [animate, setAnimate] = useState<string>(" ")
 
     const toggleNavBar = () => {
         if (nav.includes("hidden")) { setNav("") }
@@ -12,10 +13,20 @@ const NavBar = () => {
         else if (nav.includes("")) { setNav("hidden") }
     }
 
+    setTimeout(() => {
+        setAnimate("animate-opacity")
+    }, 2000);
+
+    if (animate.includes(" ")) {
+        return (
+            <></>
+        )
+    }
+
     return (
         <div className="flex flex-col font-sans w-full text-violet-500 bg-gray-800 border-b-2">
 
-            <div id="navBar" className="flex flex-row font-mono p-5">
+            <div id="navBar" className="flex flex-row font-mono p-5 animate-opacity">
 
                 <div className="flex-1 text-center p-1 text-4xl
                 md:text-left md:flex-none">
@@ -109,7 +120,7 @@ const NavBar = () => {
                 </div>
 
             </div>
-        </div>
+        </div >
     )
 }
 
