@@ -4,17 +4,16 @@ import { useEffect, useState } from "react"
 
 const AboutMe = () => {
 
-    const [animate, setAnimate] = useState<string>("")
-    const [animate2, setAnimate2] = useState<string>("")
-
-    useEffect(() => {
-        setAnimate("animate-slide-in-right")
-        setTimeout(() => setAnimate2("animate-slide-in-top"), 300)
-
-    }, [])
+    const [animate, setAnimate] = useState<string>(" ")
+    const [animate2, setAnimate2] = useState<string>(" ")
 
     useEffect(() => {
         const h = window.screen.height
+
+        setTimeout(() => {
+            setAnimate("animate-slide-in-right")
+            setTimeout(() => setAnimate2("animate-slide-in-top"), 500)
+        }, 1500);
 
         window.addEventListener("scroll", () => {
 
@@ -25,21 +24,21 @@ const AboutMe = () => {
 
             if (window.scrollY < (h / 2)) {
                 setAnimate("animate-slide-in-right")
-                setTimeout(() => setAnimate2("animate-slide-in-top"), 300)
+                setTimeout(() => setAnimate2("animate-slide-in-top"), 600)
             }
         })
     }, [animate2, animate])
 
     if (animate.includes(" ")) {
-        return <div className="h-screen w-11/12"></div>
+        return <div className="h-screen w-full md:w-2/3"></div>
     }
 
     if (animate2.includes(" ")) {
-        return <div className={"h-screen w-11/12 " + animate}></div>
+        return <div className={"flex items-center justify-center h-screen md:w-2/3 w-full border-2 border-violet-500 rounded-2xl divide-x-3 shadow-xl/30 shadow-sky-500 bg-gray-950 font-mono gap-5 " + animate}></div>
     }
 
     return (
-        <div className={"flex items-center justify-center h-screen md:w-2/3 w-11/12 border-2 border-violet-500 rounded-2xl divide-x-3 shadow-xl/30 shadow-sky-500 bg-gray-950 font-mono gap-5 " + animate}>
+        <div className={"flex items-center justify-center h-screen md:w-2/3 w-full border-2 border-violet-500 rounded-2xl divide-x-3 shadow-xl/30 shadow-sky-500 bg-gray-950 font-mono gap-5 " + animate}>
 
             <div className={"flex flex-1 justify-center " + animate2}>
                 <img src={"eu-foto.jpg"}
@@ -51,7 +50,7 @@ const AboutMe = () => {
                     <h1 className="font-extrabold bg-gradient-to-r from-violet-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">Graduado em Analise e Desenvolvimento de Sistemas <br /> (Faculdade Aeso Barros Melo)</h1>
                     <br />
                     <h1 className="font-extrabold bg-gradient-to-r from-violet-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">Especializando em Engenharia de Software <br /> (Centro Universitário Frassinetti do Recife)</h1>
-                    <br/>
+                    <br />
                     <h1 className="font-extrabold bg-gradient-to-r from-violet-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">Inglês - Nível Intermediário <br /> (Leitura, escrita e entendimento) <br /> (Wise Up Online) </h1>
                 </div>
             </div>
