@@ -28,7 +28,9 @@ const NavBar = () => {
     }
 
     return (
-        <div className="flex flex-col font-sans w-full text-violet-500 bg-gray-800 border-b-2 overflow-hidden">
+        <div className="flex flex-col font-sans w-full text-violet-500 bg-gray-800 overflow-hidden">
+
+            <span className="absolute bottom-0 left-0 w-full h-1.5 bg-violet-500 animate-border origin-left"></span>
 
             <div id="navBar" className="flex flex-row font-mono md:h-full h-[10vh] p-5 animate-opacity">
 
