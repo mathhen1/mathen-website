@@ -130,7 +130,27 @@ const Skills = () => {
         src: "postgre.png"
     },
     ]
+    
+    const [skills, setSkills] = useState(skillsList)
 
+    const all = () => {
+        setSkills(skillsList)
+    }
+
+    const principal = () => {
+        const list = skillsList.filter(skill => skill.category.includes("principal"))
+        setSkills(list)
+    }
+
+    const geral = () => {
+        const list = skillsList.filter(skill => skill.category.includes("geral"))
+        setSkills(list)
+    }
+
+    const database = () => {
+        const list = skillsList.filter(skill => skill.category.includes("database"))
+        setSkills(list)
+    }
 
     return (
         <div className={"flex flex-col h-full sm:h-[85vh] w-full border-2 border-violet-500 shadow-xl/30 shadow-sky-500 bg-gray-950 rounded-2xl font-mono md:p-2 p-1 gap-3 " + animate}>
@@ -142,16 +162,16 @@ const Skills = () => {
             </div>
 
             <div id="button-area" className="p-2 gap-4 flex w-full justify-center">
-                <button className="btn hover:scale-110 hover:underline hover:cursor-pointer">Todos</button>
-                <button className="btn hover:scale-110 hover:underline hover:cursor-pointer">principal</button>
-                <button className="btn hover:scale-110 hover:underline hover:cursor-pointer">Noção Geral</button>
-                <button className="btn hover:scale-110 hover:underline hover:cursor-pointer">Banco de Dados</button>
+                <button className="btn hover:scale-110 hover:underline hover:cursor-pointer" onClick={all}>Todos</button>
+                <button className="btn hover:scale-110 hover:underline hover:cursor-pointer" onClick={principal}>principal</button>
+                <button className="btn hover:scale-110 hover:underline hover:cursor-pointer" onClick={geral}>Noção Geral</button>
+                <button className="btn hover:scale-110 hover:underline hover:cursor-pointer" onClick={database}>Banco de Dados</button>
             </div>
 
 
             <div className={"grid grid-cols-5 text-xl p-2 w-full gap-3 border border-green-500 " + animate2}>
 
-                {skillsList.map((item) => (
+                {skills.map((item) => (
                     <div key={item.id} className="border border-violet-500 ">
 
                         <div className="text-center hover:scale-110">
