@@ -1,5 +1,4 @@
 "use client"
-
 import AboutMe from "./Components/AboutMe";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
@@ -9,7 +8,7 @@ import Skills from "./Components/Skills";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="w-full h-full">
 
       <video autoPlay loop muted src="circuits.mp4" className="fixed -z-100 w-full h-full object-cover"></video>
 
@@ -17,46 +16,49 @@ export default function Home() {
         <NavBar />
       </div>
 
-      <div className="relative">
+      {/* page content */}
 
-        <div id="page-content" className="overflow-hidden flex flex-col gap-5 pb-3 pt-3 top-0 z-10">
+      <div id="page-content" className="overflow-hidden flex flex-col gap-5 pb-3 pt-3 top-0 z-10">
 
-          <div id="about-me" className="flex flex-col justify-center w-full items-center">
-            <AboutMe />
+        <div id="about-me" className="flex flex-col justify-center w-screen h-full items-center">
+          <AboutMe />
+        </div>
+
+        <div id="skills" className="flex justify-center w-screen h-full">
+          <Skills />
+        </div>
+
+        {/* void part in page */}
+
+        <div id="void" className="w-full h-20 md:h-50">
+        </div>
+
+        {/* introduce new background and continue page content */}
+
+        <div className="h-full w-full bg-slate-900 animate-opacity">
+
+          <div id="void2" className="w-full h-2 bg-purple-700 bottom-0 left-0 animate-border origin-left">
           </div>
 
-          <div id="skills" className="w-full flex justify-center h-screen">
-            <Skills />
-          </div>
+          <div id="voidd" className="w-full h-10 md:h-20 bg-slate-900"> </div>
 
-          <div id="projects" className="flex justify-center w-full h-screen">
-
+          <div id="projects" className="flex justify-center w-screen h-full">
             <Projects />
           </div>
 
-          <div id="contact" className="flex items-center justify-center w-full h-screen">
+          <div id="contact" className="flex items-center justify-center w-screen h-full">
             <Contact />
           </div>
 
         </div>
 
-        <div id="void" className="w-full h-50 md:h-150">
-        </div>
-
       </div>
 
-      <div id="void" className="w-full h-1 md:h-3 bg-purple-700">
-      </div>
+      {/* <video autoPlay loop muted src="flames.mp4" className="absolute -z-80 h-full object-cover w-full"></video>
+      <div className="h-screen"></div> */}
 
-      <div className="relative">
-
-        <video autoPlay loop muted src="flames.mp4" className="absolute -z-80 h-full object-cover"></video>
-
-        <div className="h-screen"></div>
-
-        <div id="footer" className="flex justify-center w-full h-1/2 bg-slate-800 font-mono overflow-hidden">
-          <Footer />
-        </div>
+      <div id="footer" className="flex justify-center w-full h-1/2 bg-slate-800 font-mono overflow-hidden">
+        <Footer />
       </div>
 
     </div>
