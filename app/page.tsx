@@ -1,4 +1,5 @@
 "use client"
+import { useEffect, useState } from "react";
 import AboutMe from "./Components/AboutMe";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
@@ -7,8 +8,27 @@ import Projects from "./Components/Projects";
 import Skills from "./Components/Skills";
 
 export default function Home() {
+
+  const [init, setInit] = useState<boolean>(false)
+
+  useEffect(() => {
+
+    const root = document.getElementById("void")
+
+    if (root) {
+
+      const obs = new IntersectionObserver((entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) setInit(true)
+        })
+      }))
+      obs.observe(root)
+    }
+
+  }, [])
+
   return (
-    <div className="w-full h-full">
+    <div id="full-page" className="w-full h-full">
 
       <video autoPlay loop muted src="circuits.mp4" className="fixed -z-100 w-full h-full object-cover"></video>
 
@@ -30,27 +50,34 @@ export default function Home() {
 
         {/* void part in page */}
 
-        <div id="void" className="w-full h-20 md:h-50">
+        <div id="void" className="w-full h-10 md:h-20">
         </div>
 
         {/* introduce new background and continue page content */}
 
-        <div className="h-full w-full bg-slate-900 animate-opacity">
+        {init
+          ?
+          <>
+            <div id="half-page" className="h-full w-full bg-slate-900 animate-opacity">
 
-          <div id="void2" className="w-full h-2 bg-purple-700 bottom-0 left-0 animate-border origin-left">
-          </div>
+              {init ? <> <div id="void2" className="w-full h-2 bg-purple-700 bottom-0 left-0 animate-border origin-left">
+              </div> </> : <> </>}
 
-          <div id="voidd" className="w-full h-10 md:h-20 bg-slate-900"> </div>
+              <div id="voidd" className="w-full h-10 md:h-20 bg-slate-900"> </div>
 
-          <div id="projects" className="flex justify-center w-screen h-full">
-            <Projects />
-          </div>
+              <div id="projects" className="flex justify-center w-screen h-full">
+                <Projects />
+              </div>
 
-          <div id="contact" className="flex items-center justify-center w-screen h-full">
-            <Contact />
-          </div>
+              <div id="contact" className="flex items-center justify-center w-screen h-full">
+                <Contact />
+              </div>
 
-        </div>
+            </div>
+          </>
+          :
+          <div className="h-[200vh]">
+          </div>}
 
       </div>
 
