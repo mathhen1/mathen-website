@@ -5,6 +5,12 @@
   --foreground: #171717;
 }
 
+@property --border-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -12,7 +18,41 @@
   --font-mono: var(--font-geist-mono);
   --animate-slide-in-right: slideInRight 0.8s ease-in-out forwards;
   --animate-slide-in-left: slideInLeft 0.8s ease-in-out forwards;
-  --animate-marquee: marquee 5s linear infinite;
+  --animate-slide-in-top: slideInTop 0.8s ease-in-out forwards;
+  --animate-marquee: marquee 10s linear infinite;
+  --animate-opacity: opacityE 2s ease-in-out;
+  --animate-opacity-bg: opacityE 4s ease-in-out;
+  --animate-border: border 3s ease-in-out;
+  --animate-border-full: border-full 3s infinite;
+}
+
+@keyframes border-full {
+
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+@keyframes border {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+
+    transform: scaleX(1);
+  }
+
+}
+
+@keyframes opacityE {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideInRight {
@@ -39,30 +79,44 @@
   }
 }
 
-@keyframes marquee {
+@keyframes slideInTop {
   0% {
-    transform: translateX(0%);
+    transform: translateY(-150%);
+    opacity: 0;
   }
 
   100% {
-    transform: translateX(-50%);
+    transform: translateY(0%);
+    opacity: 1;
   }
 }
 
-@keyframes underlineAnimate {
+@keyframes marquee {
   0% {
-    
+    transform: translateX(100%);
   }
 
   100% {
-    
+    transform: translateX(-100%);
   }
+
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #080707;
     --foreground: #ededed;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 
