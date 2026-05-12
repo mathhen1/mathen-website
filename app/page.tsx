@@ -13,7 +13,7 @@ export default function Home() {
 
   useEffect(() => {
 
-    const root = document.getElementById("void")
+    const root = document.getElementById("start-intersect")
 
     if (root) {
 
@@ -21,14 +21,16 @@ export default function Home() {
         entries.forEach(entry => {
           if (entry.isIntersecting) setInit(true)
         })
-      }))
+      }), {
+        threshold: 1
+      })
       obs.observe(root)
     }
 
   }, [])
 
   return (
-    <div id="full-page" className="w-full h-full">
+    <div id="full-page" className="w-full h-full overflow-hidden">
 
       <video autoPlay loop muted src="circuits.mp4" className="fixed -z-100 w-full h-full object-cover"></video>
 
@@ -50,36 +52,38 @@ export default function Home() {
 
         {/* void part in page */}
 
-        <div id="void" className="w-full h-10 md:h-20">
+        <div id="void" className="w-full h-30 md:h-40">
         </div>
 
-        {/* introduce new background and continue page content */}
-
-        {init
-          ?
-          <>
-            <div id="half-page" className="h-full w-full bg-slate-900 animate-opacity">
-
-              {init ? <> <div id="void2" className="w-full h-2 bg-purple-700 bottom-0 left-0 animate-border origin-left">
-              </div> </> : <> </>}
-
-              <div id="voidd" className="w-full h-10 md:h-20 bg-slate-900"> </div>
-
-              <div id="projects" className="flex justify-center w-screen h-full">
-                <Projects />
-              </div>
-
-              <div id="contact" className="flex items-center justify-center w-screen h-full">
-                <Contact />
-              </div>
-
-            </div>
-          </>
-          :
-          <div className="h-[200vh]">
-          </div>}
+        <span id="start-intersect" className="-z-10 h-1"></span>
 
       </div>
+
+      {/* introduce new background and continue page content */}
+
+      {init ? <> <div id="void2" className="w-full h-2 bg-purple-400 bottom-0 left-0 animate-border origin-left">
+      </div> </> : <> </>}
+
+      {init
+        ?
+        <>
+          <div id="half-page" className="h-full w-full bg-slate-900 animate-opacity-bg flex flex-col gap-4">
+
+            <div id="voidd" className="w-full h-15 md:h-20 bg-slate-900"> </div>
+
+            <div id="projects" className="flex justify-center w-screen h-full">
+              <Projects />
+            </div>
+
+            <div id="contact" className="flex items-center justify-center w-screen h-full">
+              <Contact />
+            </div>
+
+          </div>
+        </>
+        :
+        <div className="h-[200vh]">
+        </div>}
 
       {/* <video autoPlay loop muted src="flames.mp4" className="absolute -z-80 h-full object-cover w-full"></video>
       <div className="h-screen"></div> */}
