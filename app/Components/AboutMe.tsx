@@ -5,6 +5,7 @@ import { ArrowBigRight, ArrowBigLeft } from "lucide-react"
 
 const AboutMe = () => {
 
+    const txtG: string = "font-extrabold bg-gradient-to-r from-violet-400 via-purple-500 to-pink-500 text-transparent bg-clip-text"
     const [animate, setAnimate] = useState<string>(" ")
     const [animate2, setAnimate2] = useState<string>(" ")
     const [count, setCount] = useState<number>(0)
@@ -58,29 +59,44 @@ const AboutMe = () => {
     const aboutMePages = () => {
         return (
             [
-                <div id="page-0" className={"flex flex-col gap-3 text-center justify-center items-center h-full w-full"}>
+                <div id="page-0" className={"flex flex-col sm:flex-row justify-center items-center gap-8 h-full w-full"}>
+
+                    <div className="flex flex-col pl-2 animate-slide-in-right gap-10 p-5 sm:w-2/3 justify-center items-center">
+
+                        <h1 className="tracking-wide text-[clamp(0.1rem,4vw,2rem)] sm:text-3xl text-shadow-lg text-shadow-violet-700">sou um desenvolvedor fullstack!</h1>
+
+                        {/* <div className="flex flex-row sm:flex-col justify-center items-center"> */}
+                        <p className="tracking-wide text-[clamp(0.2rem,4vw,2rem)] sm:text-lg sm:w-3/4">
+                            eu atuo na area de dev web, onde me centralizo na construção de sites modernos e funcionais
+                        </p>
+                        <p className="tracking-wide text-[clamp(0.2rem,4vw,2rem)] sm:text-lg sm:w-3/4">
+                            o meu objetivo maior é explorar e me aprofundar cada vez mais na area tech como um todo, e poder usar meus conhecimentos para construir sistemas completos
+                        </p>
+                        {/* </div> */}
+                    </div>
+
+                    <img src={"eu-foto.jpg"}
+                        className="flex rounded-3xl min-w-10 min-w-20 max-w-50 max-h-70 md:max-h-110 md:max-w-80 animate-slide-in-top pl-3 sm:w-1/3">
+                    </img>
+                </div>
+                ,
+
+                <div id="page-1" className={"flex flex-col gap-3 text-center justify-center items-center h-full w-full"}>
 
                     <div className="flex flex-col md:flex-row p-2 gap-4">
 
-                        <div className="flex w-full sm:w-1/2 flex-col justify-center items-center gap-10 animate-slide-in-right">
+                        <div className="flex w-full flex-col justify-center items-center gap-10 animate-slide-in-right">
 
                             <p className="tracking-wide text-[clamp(0.2rem,4vw,2rem)] sm:text-lg">
                                 Sou formado em <span className="bg-emerald-400 text-transparent bg-clip-text">Analise e Desenvolvimento de Sistemas</span>, pela faculdade AESO barros melo, em Olinda, PE.
                             </p>
 
                             <p className="tracking-wide text-[clamp(0.2rem,4vw,2rem)] sm:text-lg">
-                                Atualmente me especializando em <span className="bg-emerald-400 text-transparent bg-clip-text">Engenharia de Software</span>, pela faculdade Frassinetti do Recife, PE.
+                                Atualmente estou me especializando em <span className="bg-emerald-400 text-transparent bg-clip-text">Engenharia de Software</span>, pela faculdade Frassinetti do Recife, PE.
                             </p>
 
                             <p className="tracking-wide text-[clamp(0.2rem,4vw,2rem)] sm:text-lg">
                                 <span className="bg-emerald-400 text-transparent bg-clip-text">Inglês</span> de nivel <span className="bg-emerald-400 text-transparent bg-clip-text">Intermediário</span>, onde consigo compreender falas e textos, e também realizar escritas no idioma.
-                            </p>
-
-                            <p className="hidden tracking-wide text-[clamp(0.1rem,4vw,2rem)] sm:text-lg">
-                                Nesse momento, estou buscando oportunidades no mercado de trabalho para ampliar ainda mais meus conhecimentos, ganhar experiencia real e poder evoluir de forma completa.
-                            </p>
-                            <p className="hidden tracking-wide text-[clamp(0.1rem,4vw,2rem)] sm:text-lg">
-                                Meu objetivo é conhecer cada vez mais a respeito da area tech, adquirir conhecimento e experiencia na pratica, e poder usar meu conhecimento para produzir e construir novos sistemas/tecnologias.
                             </p>
 
                         </div>
@@ -95,23 +111,6 @@ const AboutMe = () => {
                     </div>
                 </div>
                 ,
-                <div id="page-1" className={"flex flex-col sm:flex-row gap-3 justify-center items-center h-full w-full"}>
-
-                    <img src={"eu-foto.jpg"}
-                        className="flex md:flex-1 rounded-3xl min-w-10 min-w-20 max-w-50 max-h-70 md:max-h-110 md:max-w-80 animate-slide-in-top">
-                    </img>
-
-                    <div className="flex justify-center items-center pl-2 animate-slide-in-right">
-                        <div className="flex flex-col text-xs sm:text-lg md:text-xl lg:text-2xl">
-                            <h1 className="font-extrabold bg-gradient-to-r from-violet-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">Graduado em Analise e Desenvolvimento de Sistemas <br /> (Faculdade Aeso Barros Melo)</h1>
-                            <br />
-                            <h1 className="font-extrabold bg-gradient-to-r from-violet-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">Especializando em Engenharia de Software <br /> (Centro Universitário Frassinetti do Recife)</h1>
-                            <br />
-                            <h1 className="font-extrabold bg-gradient-to-r from-violet-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">Inglês - Nível Intermediário <br /> (Leitura, escrita e entendimento) <br /> (Wise Up Online) </h1>
-                        </div>
-                    </div>
-
-                </div>,
 
                 <div id="page-2" className={"flex flex-col h-full animate-slide-in-top"}>
                     <div className="flex w-full justify-center p-2">
@@ -130,19 +129,21 @@ const AboutMe = () => {
                         <h1>Centro Universitario Frassinetti do Recife (Fafire)</h1>
                     </div>
                 </div>
-
-
-
                 ,
                 <div id="page-3" className={"flex flex-row divide-x-2"}>
-                    OLA
+                    <div className="flex border w-1/3 gap-5 p-3">
+
+                        <p className="">
+                            meu verdadeiro objetivo é tornar um prossional completo e capacitado, adquirir <span className="bg-green-400 text-transparent bg-clip-text">experiência e sabedoria</span> na prática, e poder usar tudo isso para produzir e construir novos <span className={txtG}>sistemas/tecnologias.</span>
+                        </p>
+                    </div>
                 </div>
             ]
         )
     }
 
     return (
-        <div className={"flex text-center h-full w-[95vw] border-r-2 border-l-2 border-t-2 border-violet-500 rounded-2xl shadow-xl/30 shadow-sky-500 bg-gray-950 font-mono gap-5 overflow-hidden p-3 " + animate}>
+        <div className={"flex text-center h-full w-[95vw] border-r-2 border-l-2 border-t-2 border-violet-500 rounded-2xl shadow-xl/30 shadow-sky-500 bg-gray-950 font-mono gap-8 overflow-hidden p-5 " + animate}>
 
             <div id="pages" className="flex flex-col h-full w-full justify-center text-[clamp(0.2rem,1rem,2rem)]">
 
@@ -151,16 +152,33 @@ const AboutMe = () => {
                     <button className="flex w-full justify-end" onClick={handleRight}><ArrowBigRight /></button>
                 </div>
 
-                <div className="flex flex-col gap-3 p-4 m-4">
-                    <h1 className="bg-gradient-to-r from-blue-200 via-purple-400 to-violet-600 text-transparent bg-clip-text animate-slide-in-top">
-                        <p className="tracking-wide sm:text-3xl md:text-4xl text-[clamp(0.8rem,5vw,2rem)]">
-                            Olá, eu sou Matheus Henrique. Ou também, Mathen!
+                <div className="flex sm:flex-col gap-3 -4 m-4">
+
+                    {/* title on desktop */}
+
+                    <h1 className="bg-gradient-to-r from-blue-200 via-purple-400 to-violet-600 text-transparent bg-clip-text sm:w-0 sm:animate-text sm:whitespace-nowrap">
+                        <p className="tracking-wide sm:text-3xl md:text-4xl text-[clamp(0.8rem,5vw,2rem)] hidden sm:block">
+                            E aí! Eu sou Matheus Henrique. Ou também, Mathen!
                         </p>
+
+                        {/* title on mobile */}
+
+                        <div className="flex flex-col items-center justify-center">
+
+                            <p className="tracking-wide text-[clamp(1rem,4vw,2rem)] block sm:hidden">
+                                E aí! Eu sou Matheus Henrique.
+                            </p>
+                            <p className="text-[clamp(1rem,4vw,2rem)] block sm:hidden">
+                                Ou também, Mathen!
+                            </p>
+                        </div>
                     </h1>
 
-                    <p className="animate-slide-in-top sm:text-2xl md:text-3xl tracking-wide text-shadow-lg text-shadow-violet-700 text-[clamp(0.5rem,5vw,2rem)]">
+                    {/* // vai pro footer */}
+
+                    {/* <p className="animate-slide-in-top sm:text-2xl md:text-3xl tracking-wide text-shadow-lg text-shadow-violet-700 text-[clamp(0.5rem,5vw,2rem)]">
                         dev web full stack
-                    </p>
+                    </p> */}
                 </div>
 
                 {aboutMePages()[count]}
