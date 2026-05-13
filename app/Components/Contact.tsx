@@ -50,7 +50,7 @@ const Contact = () => {
 
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col md:flex-row">
                 <form className="flex flex-col m-6 p-4 gap-4 border-2 rounded-2xl bg-slate-900 sm:w-[40vw]">
 
                     <h1 className="bg-purple-800 text-transparent bg-clip-text text-2xl text-shadow-xs text-shadow-gray-100">Deixe aqui seu recado!</h1>
@@ -70,76 +70,87 @@ const Contact = () => {
                     <button type="submit" className="border rounded-2xl m-3 p-3">Enviar</button>
                 </form>
 
-                {/* card contatos rapidos */}
+                <div className="flex flex-col">
 
-                <div className="flex flex-col overflow-hidden m-2 p-4 gap-3
+                    {/* card contatos rapidos */}
+
+                    <div className="flex flex-col overflow-hidden m-2 p-4 gap-3
                 border-2 border-violet-500 
-                rounded-2xl bg-slate-950 md:h-3/4 md:w-1/3 
-                hover:scale-120 hover:transition hover:duration-500 hover:ease-in-out">
+                rounded-2xl bg-slate-950
+                hover:scale-120 hover:transition hover:duration-500 hover:ease-in-out
+                md:h-full md:w-full">
 
-                    <div className="flex justify-center">
-                        <h1 className="text-lg sm:text-xl border-b p-2">
-                            contatos rapidos
-                        </h1>
+                        <div className="flex justify-center">
+                            <h1 className="text-lg sm:text-xl border-b p-2">
+                                contatos rapidos
+                            </h1>
+                        </div>
+
+                        <div className="flex flex-row gap-2">
+                            <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/gmail-icon.png" className="w-5" />
+                            <h1 className="text-[clamp(0.2rem,4vw,6rem)] md:text-lg">
+                                mathen.dev.z@gmail.com
+                            </h1>
+                        </div>
+
+                        <div className="flex flex-row gap-2">
+                            <img src="github2.png" className="w-5" />
+                            <h1 className="text-[clamp(0.2rem,4vw,6rem)] md:text-lg">
+                                mathhen1
+                            </h1>
+                        </div>
+
+                        <div className="flex flex-row gap-2">
+                            <img src="https://uxwing.com/wp-content/themes/uxwing/download/computers-mobile-hardware/smartphone-mobile-icon.png" className="w-5" />
+                            <h1 className="text-[clamp(0.2rem,4vw,6rem)] md:text-lg">
+                                +55 081 9 9734-7970
+                            </h1>
+                        </div>
+
+                        <div className="flex flex-row gap-2">
+                            <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/ig-instagram-icon.png" className="w-5 rounded-lg" />
+                            <h1 className="text-[clamp(0.2rem,4vw,6rem)] md:text-lg">
+                                @theteuzz
+                            </h1>
+                        </div>
+
+
                     </div>
 
-                    <div className="flex flex-row gap-2">
-                        <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/gmail-icon.png" className="w-5" />
-                        <h1 className="text-[clamp(0.2rem,4vw,6rem)]">
-                            mathen.dev.z@gmail.com
-                        </h1>
-                    </div>
+                    {/* cards recados */}
 
-                    <div className="flex flex-row gap-2">
-                        <img src="github2.png" className="w-5" />
-                        <h1 className="text-[clamp(0.2rem,4vw,6rem)]">
-                            mathhen1
-                        </h1>
-                    </div>
+                    <div className="flex flex-col gap-2 border-2 rounded-2xl p-5 m-2">
 
-                    <div className="flex flex-row gap-2">
-                        <img src="https://uxwing.com/wp-content/themes/uxwing/download/computers-mobile-hardware/smartphone-mobile-icon.png" className="w-5" />
-                        <h1 className="text-[clamp(0.2rem,4vw,6rem)]">
-                            +55 081 9 9734-7970
-                        </h1>
-                    </div>
+                        <div className="flex justify-center">
+                            <h1 className="border-b m-2 p-1 text-lg sm:text-2xl">recados</h1>
+                        </div>
 
-                    <div className="flex flex-row gap-2">
-                        <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/ig-instagram-icon.png" className="w-5 rounded-lg" />
-                        <h1 className="text-[clamp(0.2rem,4vw,6rem)]">
-                            @theteuzz
-                        </h1>
-                    </div>
-
-
-                </div>
-
-                <div className="flex flex-col gap-2 border-2 rounded-2xl">
-
-                    <div className="flex justify-center">
-                        <h1 className="border-b m-2 p-1">recados</h1>
-                    </div>
-
-                    <div className="flex m-2 p-2 border-2 
-                border-violet-500 rounded-3xl justify-center items-center flex-col 
+                        <div className="flex m-2 p-2 border-2 
+                border-violet-500 rounded-2xl justify-center items-center flex-col 
                 bg-sky-500 
                 hover:scale-120 hover:transition hover:duration-500 
-                hover:ease-in-out overflow-hidden md:h-3/4 md:w-1/3">
-                        <h1 className="font-bold text-purple-100 tracking-wide text-center animate-bounce">
-                            entre em contato comigo!
-                        </h1>
-                    </div>
+                hover:ease-in-out overflow-hidden md:h-3/4 md:w-1/3
+                md:w-full">
+                            <h1 className="font-bold text-purple-100 tracking-wide text-center animate-bounce">
+                                entre em contato comigo!
+                            </h1>
+                        </div>
 
-                    <div className="flex m-2 p-2 border-2 
+                        <div className="flex m-2 p-2 border-2 
                 border-violet-500 rounded-2xl justify-center items-center flex-col 
                 bg-green-600 
                 hover:scale-120 hover:transition hover:duration-500 
-                hover:ease-in-out overflow-hidden md:h-3/4 md:w-1/3">
-                        <h1 className="font-bold text-purple-100 tracking-wide text-center">
-                            estou disponivel para trabalhos! me envie uma mensagem!
-                        </h1>
+                hover:ease-in-out overflow-hidden md:h-3/4 md:w-1/3
+                md:w-full">
+                            <h1 className="font-bold text-purple-100 tracking-wide text-center">
+                                estou disponivel para trabalhos! me envie uma mensagem!
+                            </h1>
+                        </div>
                     </div>
+
                 </div>
+
+
 
             </div>
 
