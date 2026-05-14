@@ -6,6 +6,8 @@ const Projects = () => {
 
     const [animate, setAnimate] = useState<string>(" ")
     const [animate2, setAnimate2] = useState<string>(" ")
+    const [initAnimateBorder, setInitAnimateBorder] = useState<boolean>(false)
+    const anime: string = initAnimateBorder ? "animate-border-full bg-conic/[from_var(--border-angle)] from-sky-200 to-purple-700" : ""
 
     useEffect(() => {
 
@@ -15,7 +17,10 @@ const Projects = () => {
 
             if (window.scrollY > (h + h / 2)) {
                 setAnimate("animate-slide-in-right")
-                setTimeout(() => setAnimate2("animate-slide-in-left"), 500)
+                setTimeout(() => {
+                    setAnimate2("animate-slide-in-left")
+                    setInitAnimateBorder(true)
+                }, 600)
             }
 
         })
@@ -54,26 +59,43 @@ const Projects = () => {
 
     return (
 
-        <div id="cards-project" className={"flex flex-row items-center justify-center p-1 gap-8 h-full w-[95vw] border rounded-2xl border-violet-500 shadow-xl/30 shadow-sky-500 bg-gray-950 font-mono overflow-hidden animate-border-full bg-conic/[from_var(--border-angle)] from-white to-purple-700 "}>
+        <div id="cards-project" className={"flex items-center justify-center gap-8 h-full w-[95vw] rounded-2xl border-violet-500 shadow-xl/30 shadow-sky-500 bg-gray-950 font-mono overflow-y-hidden relative overflow-hidden " + animate}>
 
-            <div className="bg-gray-950 p-4 rounded-lg flex flex-col w-full h-full">
+            <div className={"w-full h-full p-1 rounded-2xl " + anime}>
 
-                <div className={"flex w-full justify-center " + animate2}><h1>Projects</h1></div>
+                <div className="bg-gray-950 p-4 rounded-lg flex flex-col min-h-[85vh] w-full h-full gap-5">
 
-                <div className={"grid grid-cols-4 w-full" + animate2}>
-                    {projectsList.map((project) => (
-                        <div key={project.id} className="">
-                            <div className="flex justify-top items-center border h-2/4 w-3/4 rounded-3xl">
-                                <img src="github.png" className="h-full w-full" />
+                    <div className={"flex w-full justify-center sm:text-2xl border-b-2 border-slate-700 " + animate2}>
+                        <h1 className="p-2 m-2 lg:text-3xl font-bold">
+                            Projetos
+                        </h1>
+                    </div>
+
+                    <div className={"grid md:grid-cols-3 w-full gap-3 justify-items-center " + animate2}>
+                        {projectsList.map((project) => (
+                            <div key={project.id} className="flex flex-col justify-center items-center rounded-2xl bg-gray-900 md:min-h-100 md:w-3/4">
+                                <img src="github.png" className="m-4 p-2 rounded-2xl w-[clamp(120px,10vw,160px)] md:w-30 md:h-30" />
+
+                                <h1 className="flex p-1 md:p-2 text-[clamp(1rem,5vw,2rem)] md:text-base">{project.title}</h1>
+
+                                <p className="text-center text-[clamp(0.8rem,4vw,2rem)] md:text-base">{project.desc}</p>
                             </div>
+                        ))}
 
-                            <h1 className="flex p-2">{project.title}</h1>
+                    </div>
 
-                            <p className="text-center">{project.desc}</p>
+                    <div className="w-full md:flex md:justify-center">
+                        <div className="border bg-sky-800 rounded-2xl flex justify-center m-1 p-2">
+                            <button className="animate-pulse">
+                                <p className="text-white tracking-wide font-bold">
+                                    Veja mais aqui!
+                                </p>
+                            </button>
                         </div>
-                    ))}
+                    </div>
 
                 </div>
+
             </div>
 
         </div>

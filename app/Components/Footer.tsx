@@ -5,18 +5,19 @@ import { useEffect, useState } from "react"
 const Footer = () => {
     const year = new Date().getFullYear()
 
-    const [animate, setAnimate] = useState<string>("")
+    const [animate, setAnimate] = useState<string>(" ")
 
     useEffect(() => {
+        const h = window.screen.height
         window.addEventListener("scroll", () => {
-            if (window.scrollY > 2800) {
+            if (window.scrollY > (h * 2 + (h / 2))) {
                 setAnimate("animate-slide-in-left")
             }
         })
     }, [])
 
-    if(animate === "") {
-        return <></>
+    if (animate.includes(" ")) {
+        return <div className="flex items-center justify-center w-1/2 h-50 gap-2"></div>
     }
 
     return (

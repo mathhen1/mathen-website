@@ -24,13 +24,16 @@ const NavBar = () => {
     }
 
     const handleTitle = () => {
+        window.scrollTo({ top: 0 })
         window.location.reload()
     }
 
     return (
-        <div className="flex flex-col font-sans w-full text-violet-500 bg-gray-800 overflow-hidden">
+        <div className="flex flex-col font-sans w-screen text-violet-500 bg-gray-800 overflow-hidden">
 
-            <span className="absolute bottom-0 left-0 w-full h-1.5 bg-violet-500 animate-border origin-left"></span>
+            <span className="absolute bottom-0 left-0 w-full h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 animate-border origin-left">
+
+            </span>
 
             <div id="navBar" className="flex flex-row font-mono md:h-full h-[10vh] p-5 animate-opacity">
 
@@ -58,7 +61,7 @@ const NavBar = () => {
 
                     <div className="flex flex-row w-full justify-center gap-5">
                         <a href="#about-me" className="hover:underline hover:decoration-sky-500 hover:underline-offset-8">
-                            About Me
+                            Sobre mim
                         </a>
 
                         <a href="#skills" className="hover:underline hover:decoration-sky-500 hover:underline-offset-8">
@@ -66,11 +69,11 @@ const NavBar = () => {
                         </a>
 
                         <a href="#projects" className="hover:underline hover:decoration-sky-500 hover:underline-offset-8">
-                            Projects
+                            Projetos
                         </a>
 
                         <a href="#contact" className="hover:underline hover:decoration-sky-500 hover:underline-offset-8">
-                            Contact
+                            Contato
                         </a>
                     </div>
 

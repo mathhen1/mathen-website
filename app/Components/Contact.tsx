@@ -26,7 +26,7 @@ const Contact = () => {
     }, [animate, animate2])
 
     if (animate.includes(" ")) {
-        return <div className={"flex flex-col items-center justify-center h-[85vh] w-[95vw] border-2 border-violet-500 rounded-2xl shadow-xl/30 shadow-sky-300 bg-gray-950 font-mono gap-4 overflow-hidden p-2 " + animate}></div>
+        return <div className={"h-[85vh] w-[95vw]"}></div>
     }
 
     return (
@@ -38,7 +38,7 @@ const Contact = () => {
                 </h1>
             </div>
 
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-4 gap-4 justify-items-center">
 
                 <a><img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/whatsapp-color-icon.png" className="w-20" /></a>
 
@@ -50,7 +50,7 @@ const Contact = () => {
 
             </div>
 
-            <div className="flex flex-col md:flex-row">
+            <div className="flex flex-col md:flex-row justify-center">
                 <form className="flex flex-col m-6 p-4 gap-4 border-2 rounded-2xl bg-slate-900 sm:w-[40vw]">
 
                     <h1 className="bg-purple-800 text-transparent bg-clip-text text-2xl text-shadow-xs text-shadow-gray-100">Deixe aqui seu recado!</h1>

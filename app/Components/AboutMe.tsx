@@ -63,14 +63,21 @@ const AboutMe = () => {
 
                     <div className="flex flex-col pl-2 animate-slide-in-right gap-10 p-5 sm:w-2/3 justify-center items-center">
 
-                        <h1 className="tracking-wide text-[clamp(0.1rem,4vw,2rem)] sm:text-3xl text-shadow-lg text-shadow-violet-700">sou um desenvolvedor fullstack!</h1>
+                        <div className="flex flex-row items-center md:gap-3">
+                            <span className="w-[3vw] h-px border sm:block hidden"></span>
+                            <h1 className="tracking-wider text-[clamp(1rem,4vw,2rem)] sm:text-3xl text-shadow-lg text-shadow-violet-700">
+                                <span className="sm:hidden">&mdash;</span>
+                                sou um desenvolvedor fullstack!
+                            </h1>
+                        </div>
+
 
                         {/* <div className="flex flex-row sm:flex-col justify-center items-center"> */}
                         <p className="tracking-wide text-[clamp(0.2rem,4vw,2rem)] sm:text-lg sm:w-3/4">
-                            eu atuo na area de dev web, onde me centralizo na construção de sites modernos e funcionais
+                            hoje atuo na area de <span className="text-emerald-500">dev web</span>, onde me centralizo na <span className="text-rose-500">construção</span> de <span className="text-emerald-500">sites modernos e funcionais</span>
                         </p>
                         <p className="tracking-wide text-[clamp(0.2rem,4vw,2rem)] sm:text-lg sm:w-3/4">
-                            o meu objetivo maior é explorar e me aprofundar cada vez mais na area tech como um todo, e poder usar meus conhecimentos para construir sistemas completos
+                            o meu <span className="text-emerald-500">grande objetivo</span>  é explorar e me aprofundar cada vez mais na area <span className="text-emerald-500">tech</span> como um todo, e poder usar meus <span className="text-rose-500">conhecimentos</span> para construir <span className="text-emerald-500">sistemas completos</span>
                         </p>
                         {/* </div> */}
                     </div>
@@ -101,7 +108,7 @@ const AboutMe = () => {
 
                         </div>
 
-                        <div className="flex h-full w-full flex-col justify-center items-center animate-slide-in-left p-4 max-sm:bg-slate-900 max-sm:rounded-2xl">
+                        <div className="flex h-full w-full flex-col md:flex-row justify-center items-center animate-slide-in-left p-4 max-sm:bg-slate-900 max-sm:rounded-2xl md:gap-3">
 
                             <img src="aeso-facul.jfif" className="w-[clamp(10px,100vw,200px)] h-[clamp(10px,100vh,200px)] rounded-2xl m-2 sm:w-60 sm:h-60" />
 
@@ -143,46 +150,57 @@ const AboutMe = () => {
     }
 
     return (
-        <div className={"flex text-center h-full w-[95vw] border-r-2 border-l-2 border-t-2 border-violet-500 rounded-2xl shadow-xl/30 shadow-sky-500 bg-gray-950 font-mono gap-8 overflow-hidden p-5 " + animate}>
+        <div className={"flex flex-col text-center h-full min-h-[80vh] w-[95vw] border-2 border-violet-500 rounded-2xl shadow-xl/30 shadow-sky-500 bg-gray-950 font-mono gap-8 overflow-hidden p-5 " + animate}>
 
-            <div id="pages" className="flex flex-col h-full w-full justify-center text-[clamp(0.2rem,1rem,2rem)]">
+            <div className="flex z-100 w-full">
+                <button className="flex w-full justify-start" onClick={handleLeft}><ArrowBigLeft /></button>
+                <button className="flex w-full justify-end" onClick={handleRight}><ArrowBigRight /></button>
+            </div>
 
-                <div className="flex z-100 w-full">
-                    <button className="flex w-full justify-start" onClick={handleLeft}><ArrowBigLeft /></button>
-                    <button className="flex w-full justify-end" onClick={handleRight}><ArrowBigRight /></button>
+            {/* title */}
+
+            <div className="flex sm:flex-col gap-3 p-4 m-4">
+
+                {/* title on desktop */}
+
+                <h1 className="bg-gradient-to-r from-blue-400 via-purple-400 to-violet-600 text-transparent bg-clip-text animate-slide-in-top hidden sm:block">
+                    <p className="font-bold tracking-wide sm:text-3xl md:text-4xl text-[clamp(1rem,4vw,2rem)]">
+                        E aí! Eu sou <span className="text-emerald-600">Matheus Henrique</span>. Ou também, <span className="text-rose-500">Mathen!</span>
+                    </p>
+                </h1>
+
+                {/* title on mobile */}
+
+                <div className="flex flex-col items-center justify-center">
+
+                    <p className="font-bold tracking-wide text-[clamp(1rem,4vw,2rem)] block sm:hidden animate-slide-in-top
+                    font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-violet-600 text-transparent bg-clip-text">
+                        E aí! Eu sou <span className="text-emerald-600">Matheus Henrique.</span>
+                    </p>
+                    <p className="font-bold text-[clamp(1rem,4vw,2rem)] block sm:hidden animate-slide-in-left
+                    font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-violet-600 text-transparent bg-clip-text">
+                        Ou também, <span className="text-rose-500">Mathen!</span>
+                    </p>
                 </div>
 
-                <div className="flex sm:flex-col gap-3 -4 m-4">
+                {/* // vai pro footer */}
 
-                    {/* title on desktop */}
-
-                    <h1 className="bg-gradient-to-r from-blue-200 via-purple-400 to-violet-600 text-transparent bg-clip-text sm:w-0 sm:animate-text sm:whitespace-nowrap">
-                        <p className="tracking-wide sm:text-3xl md:text-4xl text-[clamp(0.8rem,5vw,2rem)] hidden sm:block">
-                            E aí! Eu sou Matheus Henrique. Ou também, Mathen!
-                        </p>
-
-                        {/* title on mobile */}
-
-                        <div className="flex flex-col items-center justify-center">
-
-                            <p className="tracking-wide text-[clamp(1rem,4vw,2rem)] block sm:hidden">
-                                E aí! Eu sou Matheus Henrique.
-                            </p>
-                            <p className="text-[clamp(1rem,4vw,2rem)] block sm:hidden">
-                                Ou também, Mathen!
-                            </p>
-                        </div>
-                    </h1>
-
-                    {/* // vai pro footer */}
-
-                    {/* <p className="animate-slide-in-top sm:text-2xl md:text-3xl tracking-wide text-shadow-lg text-shadow-violet-700 text-[clamp(0.5rem,5vw,2rem)]">
+                {/* <p className="animate-slide-in-top sm:text-2xl md:text-3xl tracking-wide text-shadow-lg text-shadow-violet-700 text-[clamp(0.5rem,5vw,2rem)]">
                         dev web full stack
                     </p> */}
-                </div>
+            </div>
+
+            <div id="pages" className="flex flex-col h-full md:min-h-[50vh] w-full justify-center text-[clamp(0.2rem,1rem,2rem)]">
 
                 {aboutMePages()[count]}
 
+            </div>
+
+            <div>
+
+                <h1>tem interesse em um projeto?</h1>
+
+                <h1>me mande uma mensagem!</h1>
             </div>
 
 

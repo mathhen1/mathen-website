@@ -22,6 +22,7 @@ export default function Home() {
           if (entry.isIntersecting) setInit(true)
         })
       }), {
+        rootMargin: "0px 0px -120px 0px",
         threshold: 1
       })
       obs.observe(root)
@@ -30,11 +31,11 @@ export default function Home() {
   }, [])
 
   return (
-    <div id="full-page" className="w-full h-full overflow-hidden">
+    <div id="full-page" className="w-full h-full overflow-clip relative">
 
       <video autoPlay loop muted src="circuits.mp4" className="fixed -z-100 w-full h-full object-cover"></video>
 
-      <div id="navbar" className="sticky z-50 top-0">
+      <div id="navbar" className="sticky z-50 top-0 w-screen">
         <NavBar />
       </div>
 
@@ -52,26 +53,26 @@ export default function Home() {
 
         {/* void part in page */}
 
-        <div id="void" className="w-full h-30 md:h-40">
+        <div id="void" className="relative w-screen h-30 md:h-40">
         </div>
-
-        <span id="start-intersect" className="-z-10 h-1"></span>
 
       </div>
 
+      <span id="start-intersect" className="relative -z-20 h-1 w-0"></span>
+
       {/* introduce new background and continue page content */}
 
-      {init ? <> <div id="void2" className="w-full h-2 bg-purple-400 bottom-0 left-0 animate-border origin-left">
+      {init ? <> <div id="void2" className="overflow-hidden w-screen h-2 bg-purple-700 bottom-0 left-0 animate-border origin-left">
       </div> </> : <> </>}
 
       {init
         ?
         <>
-          <div id="half-page" className="h-full w-full bg-slate-900 animate-opacity-bg flex flex-col gap-4">
+          <div id="half-page" className="overflow-hidden h-full w-screen bg-slate-900 animate-opacity-bg flex flex-col gap-4">
 
-            <div id="voidd" className="w-full h-15 md:h-20 bg-slate-900"> </div>
+            <div id="voidd" className="w-screen h-15 md:h-20 bg-slate-900"> </div>
 
-            <div id="projects" className="flex justify-center w-screen h-full">
+            <div id="projects" className="flex items-center justify-center w-screen h-full">
               <Projects />
             </div>
 
@@ -88,7 +89,7 @@ export default function Home() {
       {/* <video autoPlay loop muted src="flames.mp4" className="absolute -z-80 h-full object-cover w-full"></video>
       <div className="h-screen"></div> */}
 
-      <div id="footer" className="flex justify-center w-full h-1/2 bg-slate-800 font-mono overflow-hidden">
+      <div id="footer" className="flex justify-center w-screen h-1/2 bg-slate-800 font-mono overflow-hidden">
         <Footer />
       </div>
 

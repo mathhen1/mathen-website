@@ -3,35 +3,24 @@
 import { useCallback, useEffect, useState } from "react"
 
 const Skills = () => {
-    const [animate, setAnimate] = useState<string>("animate-slide-in-right")
-    const [animate2, setAnimate2] = useState<string>("animate-slide-in-left")
+    const [animate, setAnimate] = useState<string>(" ")
+    const [animate2, setAnimate2] = useState<string>(" ")
 
-    // useEffect(() => {
-    //     const h = window.screen.height
+    useEffect(() => {
+        const h = window.screen.height
 
-    //     window.addEventListener("scroll", () => {
-    //         if (window.scrollY > h - (h * 0.4) && window.scrollY < h * 2) {
-    //             setAnimate("animate-slide-in-right")
-    //             setTimeout(() => setAnimate2("animate-slide-in-left"), 500)
-    //         }
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > h - (h * 0.4) && window.scrollY < h * 2) {
+                setAnimate("animate-slide-in-right")
+                setTimeout(() => setAnimate2("animate-slide-in-left"), 500)
+            }
 
-    //         if (window.scrollY > (h * 2) - h * 0.4 || window.scrollY < (h * 0.1)) {
-    //             setAnimate(" ")
-    //             setAnimate2(" ")
-    //         }
-    //     })
-    // }, [animate, animate2])
-
-    if (animate.includes(" ")) {
-        return <div className="h-[85vh] md:w-2/3 w-11/12"></div>
-    }
-
-    if (animate2.includes(" ")) {
-        return (
-            <div className={"md:w-2/3 flex flex-col items-center h-[85vh] w-11/12 border-2 border-violet-500 shadow-xl/30 shadow-sky-500 bg-gray-950 rounded-2xl overflow-hidden font-mono p-2 gap-3 " + animate}>
-            </div>
-        )
-    }
+            // if (window.scrollY > (h * 2) || window.scrollY < (h * 0.1)) {
+            //     setAnimate(" ")
+            //     setAnimate2(" ")
+            // }
+        })
+    }, [animate, animate2])
 
     const skillsList = [{
         id: 0,
@@ -130,54 +119,92 @@ const Skills = () => {
         src: "postgre.png"
     },
     ]
-    
+
     const [skills, setSkills] = useState(skillsList)
 
-    const all = () => {
-        setSkills(skillsList)
+    class functionsCategory {
+
+        all() {
+            setSkills([])
+            setTimeout(() => {
+                setSkills(skillsList)
+            }, 200);
+
+        }
+
+        principal() {
+            setSkills([])
+            setTimeout(() => {
+                const list = skillsList.filter(skill => skill.category.includes("principal"))
+                setSkills(list)
+            }, 200);
+        }
+
+        geral() {
+            setSkills([])
+            setTimeout(() => {
+                const list = skillsList.filter(skill => skill.category.includes("geral"))
+                setSkills(list)
+            }, 200);
+        }
+
+        database() {
+            setSkills([])
+            setTimeout(() => {
+                const list = skillsList.filter(skill => skill.category.includes("database"))
+                setSkills(list)
+            }, 200);
+        }
     }
 
-    const principal = () => {
-        const list = skillsList.filter(skill => skill.category.includes("principal"))
-        setSkills(list)
+    if (animate.includes(" ")) {
+        return <div className="h-[85vh] w-[95vw]"></div>
     }
 
-    const geral = () => {
-        const list = skillsList.filter(skill => skill.category.includes("geral"))
-        setSkills(list)
-    }
-
-    const database = () => {
-        const list = skillsList.filter(skill => skill.category.includes("database"))
-        setSkills(list)
+    if (animate2.includes(" ")) {
+        return (
+            <div className={"flex flex-col items-center h-[85vh] w-[95vw] border-2 border-violet-500 shadow-xl/30 shadow-sky-500 bg-gray-950 rounded-2xl overflow-hidden font-mono p-2 gap-3 " + animate}>
+            </div>
+        )
     }
 
     return (
-        <div className={"flex flex-col h-full sm:h-[85vh] w-full border-2 border-violet-500 shadow-xl/30 shadow-sky-500 bg-gray-950 rounded-2xl font-mono md:p-2 p-1 gap-3 " + animate}>
+        <div className={"flex flex-col h-full overflow-hidden w-[95vw] border-2 border-violet-500 shadow-xl/30 shadow-sky-500 bg-gray-950 rounded-2xl font-mono md:p-2 p-1 gap-3 " + animate}>
 
-            {/* text-[clamp(1rem,5vw,2rem)] */}
 
             <div className="flex w-full justify-center">
-                <h1 className="text-2xl p-3">Skills e Tecnologias</h1>
+                <h1 className="text-[clamp(0.5rem,5vw,2rem)] sm:text-2xl p-3">Skills e Tecnologias</h1>
             </div>
 
-            <div id="button-area" className="p-2 gap-4 flex w-full justify-center">
-                <button className="btn hover:scale-110 hover:underline hover:cursor-pointer" onClick={all}>Todos</button>
-                <button className="btn hover:scale-110 hover:underline hover:cursor-pointer" onClick={principal}>principal</button>
-                <button className="btn hover:scale-110 hover:underline hover:cursor-pointer" onClick={geral}>Noção Geral</button>
-                <button className="btn hover:scale-110 hover:underline hover:cursor-pointer" onClick={database}>Banco de Dados</button>
+            <div id="button-area" className="p-2 grid grid-cols-2 sm:grid-cols-4 md:flex md:justify-center md:items-center md:gap-4 gap-4 justify-items-center w-full">
+
+                <button className="btn hover:scale-110 rounded-2xl outline-2 p-3 hover:cursor-pointer text-[clamp(0.2rem,5vw,2rem)] sm:text-lg bg-black focus:bg-purple-500" onClick={functionsCategory.prototype.all}>
+                    Todos
+                </button>
+
+                <button className="btn hover:scale-110 rounded-2xl bg-black outline-2 p-3 hover:cursor-pointer text-[clamp(0.2rem,5vw,2rem)] sm:text-lg focus:bg-purple-500 bg-black focus:bg-purple-500" onClick={functionsCategory.prototype.principal}>
+                    Principal
+                </button>
+
+                <button className="btn hover:scale-110 rounded-2xl outline-2 p-3 hover:cursor-pointer text-[clamp(0.2rem,4vw,2rem)] sm:text-lg bg-black focus:bg-purple-500" onClick={functionsCategory.prototype.geral}>
+                    Noção geral
+                </button>
+
+                <button className="btn hover:scale-110 rounded-2xl outline-2 p-3 hover:cursor-pointer text-[clamp(0.2rem,4vw,2rem)] sm:text-lg bg-black focus:bg-purple-500" onClick={functionsCategory.prototype.database}>
+                    Banco de Dados
+                </button>
+
             </div>
 
-
-            <div className={"grid grid-cols-5 text-xl p-2 w-full gap-3 border border-green-500 " + animate2}>
+            <div className={"grid grid-cols-5 sm:grid-cols-7 text-xl p-2 w-full h-[80vh] items-start gap-3 " + animate2}>
 
                 {skills.map((item) => (
-                    <div key={item.id} className="border border-violet-500 ">
+                    <div key={item.id} className="animate-opacity">
 
                         <div className="text-center hover:scale-110">
-                            <h1 className="text-[clamp(0.5rem,10vw,1rem)]">{item.title}</h1>
+                            <h1 className="text-[clamp(1rem,1vw,10rem)] max-sm:hidden">{item.title}</h1>
                             <div className="flex justify-center">
-                                <img src={item.src} className="rounded-2xl w-[clamp(10px,80px,80px)]"
+                                <img src={item.src} className="rounded-2xl w-[clamp(10px,100vw,80px)]"
                                 />
                             </div>
                         </div>
@@ -186,6 +213,7 @@ const Skills = () => {
                 )
                 )}
             </div>
+
         </div>
     )
 }
