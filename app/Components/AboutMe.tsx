@@ -1,14 +1,17 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { ArrowBigRight, ArrowBigLeft } from "lucide-react"
+import { ArrowBigRight, ArrowBigLeft, Menu } from "lucide-react"
 
 const AboutMe = () => {
 
-    const txtG: string = "font-extrabold bg-gradient-to-r from-violet-400 via-purple-500 to-pink-500 text-transparent bg-clip-text"
     const [animate, setAnimate] = useState<string>(" ")
     const [animate2, setAnimate2] = useState<string>(" ")
     const [count, setCount] = useState<number>(0)
+    const [showPages, setShowPages] = useState<boolean>(false)
+
+    const txtG: string = "font-extrabold bg-gradient-to-r from-violet-400 via-purple-500 to-pink-500 text-transparent bg-clip-text"
+    const plus: string = showPages ? "block" : "hidden"
 
     useEffect(() => {
         const h = window.screen.height
@@ -48,6 +51,14 @@ const AboutMe = () => {
         else setCount(count - 1)
     }
 
+    const handlePages = () => {
+        if (showPages === false)
+            setShowPages(true)
+
+        else if (showPages === true)
+            setShowPages(false)
+    }
+
     if (animate.includes(" ")) {
         return <div className="h-[85vh] w-full"></div>
     }
@@ -63,17 +74,10 @@ const AboutMe = () => {
 
                     <div className="flex flex-col pl-2 animate-slide-in-right gap-10 p-5 sm:w-2/3 justify-center items-center">
 
-                        <div className="flex flex-row items-center md:gap-3">
-                            <span className="w-[3vw] h-px border sm:block hidden"></span>
-                            <h1 className="tracking-wider text-[clamp(1rem,4vw,2rem)] sm:text-3xl text-shadow-lg text-shadow-violet-700">
-                                <span className="sm:hidden">&mdash;</span>
-                                sou um desenvolvedor fullstack!
-                            </h1>
-                        </div>
-
 
                         {/* <div className="flex flex-row sm:flex-col justify-center items-center"> */}
                         <p className="tracking-wide text-[clamp(0.2rem,4vw,2rem)] sm:text-lg sm:w-3/4">
+
                             hoje atuo na area de <span className="text-emerald-500">dev web</span>, onde me centralizo na <span className="text-rose-500">construção</span> de <span className="text-emerald-500">sites modernos e funcionais</span>
                         </p>
                         <p className="tracking-wide text-[clamp(0.2rem,4vw,2rem)] sm:text-lg sm:w-3/4">
@@ -150,12 +154,7 @@ const AboutMe = () => {
     }
 
     return (
-        <div className={"flex flex-col text-center h-full min-h-[80vh] w-[95vw] border-2 border-violet-500 rounded-2xl shadow-xl/30 shadow-sky-500 bg-gray-950 font-mono gap-8 overflow-hidden p-5 " + animate}>
-
-            <div className="flex z-100 w-full">
-                <button className="flex w-full justify-start" onClick={handleLeft}><ArrowBigLeft /></button>
-                <button className="flex w-full justify-end" onClick={handleRight}><ArrowBigRight /></button>
-            </div>
+        <div className={"relative flex flex-col text-center min-h-[80vh] h-full w-[95vw] font-mono gap-8 overflow-hidden p-5 " + animate}>
 
             {/* title */}
 
@@ -173,36 +172,99 @@ const AboutMe = () => {
 
                 <div className="flex flex-col items-center justify-center">
 
-                    <p className="font-bold tracking-wide text-[clamp(1rem,4vw,2rem)] block sm:hidden animate-slide-in-top
+                    <p className="font-bold tracking-wide text-[clamp(1rem,6vw,2rem)] block sm:hidden animate-slide-in-top
                     font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-violet-600 text-transparent bg-clip-text">
-                        E aí! Eu sou <span className="text-emerald-600">Matheus Henrique.</span>
+                        E aí! Eu sou <span className="text-emerald-600 tracking-wider">Matheus Henrique</span>
                     </p>
-                    <p className="font-bold text-[clamp(1rem,4vw,2rem)] block sm:hidden animate-slide-in-left
+                    <p className="font-bold text-[clamp(1rem,6vw,2rem)] block sm:hidden animate-slide-in-left
                     font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-violet-600 text-transparent bg-clip-text">
-                        Ou também, <span className="text-rose-500">Mathen!</span>
+                        Ou também, <span className="text-rose-500 tracking-wider">Mathen!</span>
                     </p>
                 </div>
 
-                {/* // vai pro footer */}
-
-                {/* <p className="animate-slide-in-top sm:text-2xl md:text-3xl tracking-wide text-shadow-lg text-shadow-violet-700 text-[clamp(0.5rem,5vw,2rem)]">
-                        dev web full stack
-                    </p> */}
             </div>
 
-            <div id="pages" className="flex flex-col h-full md:min-h-[50vh] w-full justify-center text-[clamp(0.2rem,1rem,2rem)]">
+            {/* subtitle */}
+
+            <div className="flex flex-row md:gap-3">
+                <span className="w-[3vw] h-px border sm:block hidden"></span>
+                <h1 className="flex flex-col items-center tracking-wider text-[clamp(1rem,5vw,2rem)] sm:text-3xl text-shadow-lg text-shadow-violet-700 gap-5">
+                    <span className="sm:hidden">&mdash; desenvolvedor fullstack!</span>
+                    {/* <span className="flex h-px border w-1/6"></span> */}
+                </h1>
+            </div>
+
+            {/* description */}
+
+            <div className="flex flex-col items-center gap-5 p-2 m-2 font-semibold tracking-wide">
+                <h1>
+                    construção de <span className="text-yellow-300 underline underline-offset-5">sites</span> modernos e funcionais, prezando <span className="text-rose-500">qualidade, </span><span className="text-cyan-500">tecnica </span>e <span className="text-amber-600">desempenho.</span>
+                </h1>
+                <span className="flex h-px border w-1/6 justify-center"></span>
+            </div>
+
+            {/* contact me */}
+
+            <div className="flex flex-col gap-2">
+
+                <div className="border rounded-2xl p-2 bg-purple-100">
+                    <h1 className="text-slate-950 font-bold">tem interesse em um projeto?</h1>
+                </div>
+
+                <div className="border rounded-2xl p-2 bg-purple-100">
+                    <h1 className="text-slate-950 animate-pulse font-bold">me mande uma mensagem!</h1>
+                </div>
+
+            </div>
+
+            {/* links rapidos */}
+
+            <div className="grid grid-cols-3 justify-items-center">
+
+                <a>
+                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/linkedin-app-icon.png" className="bg-slate-800 rounded-2xl w-10 p-10" />
+                    <p>Linkedin</p>
+                </a>
+
+                <a>
+                    <img src="githubb.png" className="bg-slate-800 rounded-2xl w-10 p-10" />
+                    GitHub
+                </a>
+
+                <a>
+                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/whatsapp-color-icon.png" className="bg-slate-800 rounded-2xl w-10 p-10" />
+                    WhatsApp
+                </a>
+            </div>
+
+            {/* division page */}
+
+            <div className="flex justify-center">
+                <div className="h-px w-3/4 bg-white"></div>
+            </div>
+            
+
+            {/* plus about-me */}
+
+            <div className="flex flex-row justify-center gap-2 bg-slate-800 rounded-2xl p-2">
+                <button onClick={handlePages}>Ver mais</button>
+                <Menu />
+            </div>
+
+            {/* pages about-me */}
+
+            <div id="pages" className={"border relative flex flex-col h-full min-h-[60vh] md:min-h-[50vh] w-full justify-center text-[clamp(0.2rem,1rem,2rem)] " + plus}>
+
+                {/* handle pages */}
+
+                <button className="absolute left-0 top-[50vh]" onClick={handleLeft}><ArrowBigLeft /></button>
+                <button className="absolute right-0 top-[50vh]" onClick={handleRight}><ArrowBigRight /></button>
 
                 {aboutMePages()[count]}
 
             </div>
 
-            <div>
-
-                <h1>tem interesse em um projeto?</h1>
-
-                <h1>me mande uma mensagem!</h1>
-            </div>
-
+            <span className="flex h-px border w-full justify-center"></span>
 
 
         </div>
