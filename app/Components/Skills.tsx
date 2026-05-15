@@ -169,42 +169,47 @@ const Skills = () => {
     }
 
     return (
-        <div className={"flex flex-col h-full overflow-hidden w-[95vw] border-2 border-violet-500 shadow-xl/30 shadow-sky-500 bg-gray-950 rounded-2xl font-mono md:p-2 p-1 gap-3 " + animate}>
+        <div className={"flex flex-col h-full overflow-hidden w-[95vw] font-mono md:p-2 p-1 gap-3 " + animate}>
 
+            {/* title */}
 
-            <div className="flex w-full justify-center">
+            <div className="flex flex-col w-full items-center gap-2">
                 <h1 className="text-[clamp(0.5rem,5vw,2rem)] sm:text-2xl p-3">Skills e Tecnologias</h1>
+                <span className="h-px w-1/6 bg-white justify-center"></span>
             </div>
 
-            <div id="button-area" className="p-2 grid grid-cols-2 sm:grid-cols-4 md:flex md:justify-center md:items-center md:gap-4 gap-4 justify-items-center w-full">
+            {/* button area */}
 
-                <button className="btn hover:scale-110 rounded-2xl outline-2 p-3 hover:cursor-pointer text-[clamp(0.2rem,5vw,2rem)] sm:text-lg bg-black focus:bg-purple-500" onClick={functionsCategory.prototype.all}>
+            <div className="grid grid-cols-4
+            gap-4 md:flex md:justify-center md:items-center md:gap-4">
+
+                <button className="btn font-bold hover:scale-110 rounded-xl hover:cursor-pointer text-[clamp(0.2rem,3vw,2rem)] sm:text-lg bg-black focus:bg-white focus:text-black" onClick={functionsCategory.prototype.all}>
                     Todos
                 </button>
 
-                <button className="btn hover:scale-110 rounded-2xl bg-black outline-2 p-3 hover:cursor-pointer text-[clamp(0.2rem,5vw,2rem)] sm:text-lg focus:bg-purple-500 bg-black focus:bg-purple-500" onClick={functionsCategory.prototype.principal}>
+                <button className="btn font-bold hover:scale-110 rounded-2xl bg-black hover:cursor-pointer text-[clamp(0.2rem,3vw,2rem)] sm:text-lg bg-black focus:bg-white focus:text-black " onClick={functionsCategory.prototype.principal}>
                     Principal
                 </button>
 
-                <button className="btn hover:scale-110 rounded-2xl outline-2 p-3 hover:cursor-pointer text-[clamp(0.2rem,4vw,2rem)] sm:text-lg bg-black focus:bg-purple-500" onClick={functionsCategory.prototype.geral}>
+                <button className="btn font-bold hover:scale-110 rounded-2xl hover:cursor-pointer text-[clamp(0.2rem,3vw,2rem)] sm:text-lg bg-black focus:bg-white focus:text-black" onClick={functionsCategory.prototype.geral}>
                     Noção geral
                 </button>
 
-                <button className="btn hover:scale-110 rounded-2xl outline-2 p-3 hover:cursor-pointer text-[clamp(0.2rem,4vw,2rem)] sm:text-lg bg-black focus:bg-purple-500" onClick={functionsCategory.prototype.database}>
+                <button className="btn font-bold hover:scale-110 rounded-2xl hover:cursor-pointer text-[clamp(0.2rem,3vw,2rem)] sm:text-lg bg-black focus:bg-white focus:text-black" onClick={functionsCategory.prototype.database}>
                     Banco de Dados
                 </button>
 
             </div>
 
-            <div className={"grid grid-cols-5 sm:grid-cols-7 text-xl p-2 w-full h-[80vh] items-start gap-3 " + animate2}>
+            <div className={"grid grid-cols-5 sm:grid-cols-7 text-xl p-2 w-full items-start gap-3 " + animate2}>
 
                 {skills.map((item) => (
                     <div key={item.id} className="animate-opacity">
 
-                        <div className="text-center hover:scale-110">
+                        <div className="text-center hover:scale-110 bg-slate-700 rounded-2xl">
                             <h1 className="text-[clamp(1rem,1vw,10rem)] max-sm:hidden">{item.title}</h1>
                             <div className="flex justify-center">
-                                <img src={item.src} className="rounded-2xl w-[clamp(10px,100vw,80px)]"
+                                <img src={item.src} className="rounded-2xl w-[clamp(10px,100vw,80px)] p-2"
                                 />
                             </div>
                         </div>

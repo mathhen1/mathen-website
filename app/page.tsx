@@ -31,9 +31,9 @@ export default function Home() {
   }, [])
 
   return (
-    <div id="full-page" className="w-full h-full overflow-clip relative">
+    <div id="full-page" className="w-full h-full overflow-clip relative bg-gradient-to-b from-black via-slate-900 to-slate-900">
 
-      <video autoPlay loop muted src="circuits.mp4" className="fixed -z-100 w-full h-full object-cover"></video>
+      {/* <video autoPlay loop muted src="circuits.mp4" className="fixed -z-100 w-full h-full object-cover"></video> */}
 
       <div id="navbar" className="sticky z-50 top-0 w-screen">
         <NavBar />
@@ -43,11 +43,11 @@ export default function Home() {
 
       <div id="page-content" className="overflow-hidden flex flex-col gap-5 pb-3 pt-3 top-0 z-10">
 
-        <div id="about-me" className="flex flex-col justify-center w-screen h-full items-center">
+        <div id="about-me" className="w-screen h-full">
           <AboutMe />
         </div>
 
-        <div id="skills" className="flex justify-center w-screen h-full">
+        <div id="skills" className="w-screen h-full">
           <Skills />
         </div>
 
@@ -68,9 +68,9 @@ export default function Home() {
       {init
         ?
         <>
-          <div id="half-page" className="overflow-hidden h-full w-screen bg-slate-900 animate-opacity-bg flex flex-col gap-4">
+          <div id="half-page" className="overflow-hidden h-full w-screen bg-gradient-to-t from-black via-slate-900 to-gray-800 animate-opacity-bg flex flex-col gap-4 ">
 
-            <div id="voidd" className="w-screen h-15 md:h-20 bg-slate-900"> </div>
+            <div id="voidd" className="w-screen h-1 bg-gray-800"> </div>
 
             <div id="projects" className="flex items-center justify-center w-screen h-full">
               <Projects />
