@@ -197,8 +197,8 @@ const AboutMe = () => {
             {/* description */}
 
             <div className="flex flex-col items-center gap-5 p-2 m-2 font-semibold tracking-wide">
-                <h1>
-                    construção de <span className="text-yellow-300 underline underline-offset-5">sites</span> modernos e funcionais, prezando <span className="text-rose-500">qualidade, </span><span className="text-cyan-500">tecnica </span>e <span className="text-amber-600">desempenho.</span>
+                <h1 className="text-center">
+                    construção de <span className="text-yellow-300 underline underline-offset-5">sites</span> modernos e funcionais, prezando <span className="text-rose-500">qualidade técnica, </span><span className="text-cyan-500">estética </span>e <span className="text-amber-600">desempenho.</span>
                 </h1>
                 <span className="flex h-px border w-1/6 justify-center"></span>
             </div>
@@ -221,19 +221,19 @@ const AboutMe = () => {
 
             <div className="grid grid-cols-3 justify-items-center">
 
-                <a>
-                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/linkedin-app-icon.png" className="bg-slate-800 rounded-2xl w-10 p-10" />
+                <a href="" className="flex flex-col items-center gap-1">
+                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/linkedin-app-icon.png" className="bg-slate-800 rounded-2xl w-[clamp(10px,80vw,60px)]" />
                     <p>Linkedin</p>
                 </a>
 
-                <a>
-                    <img src="githubb.png" className="bg-slate-800 rounded-2xl w-10 p-10" />
-                    GitHub
+                <a href="" className="flex flex-col items-center gap-1">
+                    <img src="github.png" className="bg-slate-800 rounded-2xl p-2 w-[clamp(10px,80vw,60px)]" />
+                    <p>GitHub</p>
                 </a>
 
-                <a>
-                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/whatsapp-color-icon.png" className="bg-slate-800 rounded-2xl w-10 p-10" />
-                    WhatsApp
+                <a href="" className="flex flex-col items-center gap-1">
+                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/whatsapp-color-icon.png" className="bg-slate-800 rounded-2xl p-2 w-[clamp(10px,80vw,60px)]" />
+                    <p>WhtasApp</p>
                 </a>
             </div>
 
@@ -242,14 +242,14 @@ const AboutMe = () => {
             <div className="flex justify-center">
                 <div className="h-px w-3/4 bg-white"></div>
             </div>
-            
+
 
             {/* plus about-me */}
 
-            <div className="flex flex-row justify-center gap-2 bg-slate-800 rounded-2xl p-2">
-                <button onClick={handlePages}>Ver mais</button>
+            <button onClick={handlePages} className="flex flex-row justify-center gap-2 bg-slate-800 rounded-2xl p-2 border">
+                Ver mais
                 <Menu />
-            </div>
+            </button>
 
             {/* pages about-me */}
 
