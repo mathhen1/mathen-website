@@ -15,7 +15,7 @@ const Projects = () => {
 
         window.addEventListener("scroll", () => {
 
-            if (window.scrollY > (h + h / 2)) {
+            if (window.scrollY > (h + h / 3)) {
                 setAnimate("animate-slide-in-right")
                 setTimeout(() => {
                     setAnimate2("animate-slide-in-left")
@@ -50,53 +50,56 @@ const Projects = () => {
         return <div className="h-[85vh] w-95vw]"></div>
     }
 
-    if (animate2.includes(" ")) {
-        return (
-            <div className={"flex flex-row items-center justify-center p-5 gap-8 h-[85vh] w-[95vw] border-2 rounded-2xl border-violet-500 shadow-xl/30 shadow-sky-500 bg-gray-950 font-mono " + animate}>
-            </div>
-        )
-    }
-
     return (
 
-        <div id="cards-project" className={"flex items-center justify-center gap-8 h-full w-[95vw] rounded-2xl border-violet-500 shadow-xl/30 shadow-sky-500 bg-gray-950 font-mono overflow-y-hidden relative overflow-hidden " + animate}>
+        <div id="cards-project" className={"flex gap-8 h-full w-[95vw] font-mono overflow-y-hidden relative overflow-hidden animate-slide-in-right"}>
 
-            <div className={"w-full h-full p-1 rounded-2xl " + anime}>
+            {/* projects part */}
 
-                <div className="bg-gray-950 p-4 rounded-lg flex flex-col min-h-[85vh] w-full h-full gap-5">
+            <div className=" p-4 rounded-lg flex flex-col min-h-[85vh] w-full h-full gap-5">
 
-                    <div className={"flex w-full justify-center sm:text-2xl border-b-2 border-slate-700 " + animate2}>
-                        <h1 className="p-2 m-2 lg:text-3xl font-bold">
-                            Projetos
-                        </h1>
-                    </div>
+                <div className={"flex w-full justify-center sm:text-2xl border-b-2 border-slate-700 animate-slide-in-left"}>
+                    <h1 className="p-2 m-2 lg:text-3xl font-bold">
+                        Projetos
+                    </h1>
+                </div>
 
-                    <div className={"grid md:grid-cols-3 w-full gap-3 justify-items-center " + animate2}>
-                        {projectsList.map((project) => (
-                            <div key={project.id} className="flex flex-col justify-center items-center rounded-2xl bg-gray-900 md:min-h-100 md:w-3/4">
+                <div className={"grid md:grid-cols-3 w-full gap-3 justify-items-center animate-slide-in-left"}>
+                    {projectsList.map((project) => (
+                        <div key={project.id} className={"p-1 rounded-2xl " + anime}>
+
+                            <div className="flex flex-col justify-center items-center rounded-2xl bg-gray-900 md:min-h-100 md:w-3/4 ">
                                 <img src="github.png" className="m-4 p-2 rounded-2xl w-[clamp(120px,10vw,160px)] md:w-30 md:h-30" />
 
                                 <h1 className="flex p-1 md:p-2 text-[clamp(1rem,5vw,2rem)] md:text-base">{project.title}</h1>
 
                                 <p className="text-center text-[clamp(0.8rem,4vw,2rem)] md:text-base">{project.desc}</p>
                             </div>
-                        ))}
 
-                    </div>
-
-                    <div className="w-full md:flex md:justify-center">
-                        <div className="border bg-sky-800 rounded-2xl flex justify-center m-1 p-2">
-                            <button className="animate-pulse">
-                                <p className="text-white tracking-wide font-bold">
-                                    Veja mais aqui!
-                                </p>
-                            </button>
                         </div>
-                    </div>
+                    ))}
 
                 </div>
 
+                {/* see more button */}
+
+                <div className="w-full md:flex md:justify-center">
+                    <div className="border bg-sky-800 rounded-2xl flex justify-center m-1 p-2">
+                        <button className="animate-pulse">
+                            <p className="text-white tracking-wide font-bold">
+                                Veja mais aqui!
+                            </p>
+                        </button>
+                    </div>
+                </div>
+
+                {/* division content */}
+
+                <div className="w-full h-px border"></div>
+
             </div>
+
+            {/* </div> */}
 
         </div>
 
